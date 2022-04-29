@@ -1,41 +1,37 @@
 import React from "react";
+import { Carousel } from "react-bootstrap";
 import "./Header.css";
 const Header = () => {
   return (
     <div className="header-container">
-      <aside className="text-light py-3">
-        <div className="aside-container container">
-          <div>
-            <span>
-              {" "}
-              <i class="fa-solid fa-clock text-primary"></i> Mon - Tues : 6.00
-              am - 10.00 pm, Sunday Closed
-            </span>
-          </div>
-          <div className="d-flex align-items-center justify-content-center mt-1">
-            <div className="social-icons">
-              <a href="/">
-                <i class="fa-brands fa-facebook-f"></i>
-              </a>
+      <h3>header sectrion</h3>
+      <Carousel fade>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 "
+            src="https://klbtheme.com/groci/wp-content/uploads/2018/08/slider2.jpg"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://klbtheme.com/groci/wp-content/uploads/2018/08/slider1.jpg"
+            alt="Third slide"
+          />
 
-              <a href="/">
-                <i class="fa-brands fa-twitter"></i>
-              </a>
-              <a href="/">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="/">
-                <i class="fa-brands fa-google-plus-g"></i>
-              </a>
-            </div>
-            <div className="user-login">
-              <a href="/">Login</a>
-              <span>or</span>
-              <a href="/">Register</a>
-            </div>
-          </div>
-        </div>
-      </aside>
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
     </div>
   );
 };
