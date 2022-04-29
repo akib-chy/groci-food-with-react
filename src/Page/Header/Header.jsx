@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import OurService from "../OurService/OurService";
 import "./Header.css";
 const Header = () => {
   return (
@@ -32,6 +33,7 @@ const Header = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <OurService />
     </div>
   );
 };

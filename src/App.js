@@ -2,9 +2,9 @@ import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Page/Header/Header";
-import Navbar from "./Page/Header/Shared/Navbar/Navbar";
 import Login from "./Page/UserForm/Login/Login";
 import Register from "./Page/UserForm/Register/Register";
+import Navbar from "./Shared/Navbar/Navbar";
 
 function App() {
   return (
