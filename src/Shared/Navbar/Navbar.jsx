@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.png";
+import logo from "../../img/logo-1.webp";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
       <div>
-        <aside className="text-light py-3">
+        <aside className="text-light py-3 text-center">
           <div className="aside-container container">
             <div>
               <span>
@@ -42,10 +42,10 @@ const Navbar = () => {
         </aside>
       </div>
       <div className="navbar-container">
-        <nav className="navbar navbar-expand-lg  container">
+        <nav className="navbar navbar-expand-lg  container navbar-dark">
           <div className="container-fluid">
             <Link className="navbar-brand fs-2 fw-bold text-light" to="/">
-              Gemini
+              <img className="img-fluid" src={logo} alt="" />
             </Link>
             <button
               className="navbar-toggler"
@@ -62,7 +62,7 @@ const Navbar = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className=" navbar-nav ms-auto mb-2 mb-lg-0">
+              <ul className=" navbar-nav ms-auto mb-2 mb-lg-0 text-center">
                 <li className="nav-item">
                   <a
                     className="nav-link text-light"
