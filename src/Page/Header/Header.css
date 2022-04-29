@@ -1,0 +1,12 @@
+.header-container aside {
+  background-color: #142440;
+}
+.social-icons a {
+  font-size: 17px;
+  margin: 0 14px;
+  color: #fff;
+}
+.user-login a {
+  text-decoration: none;
+  margin: 0 10px;
+}
