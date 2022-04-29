@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo-1.webp";
+import CustomLink from "../CustomLink/CustomLink";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -64,13 +65,13 @@ const Navbar = () => {
             >
               <ul className=" navbar-nav ms-auto mb-2 mb-lg-0 text-center">
                 <li className="nav-item">
-                  <a
+                  <CustomLink
                     className="nav-link text-light"
                     aria-current="page"
-                    href="#"
+                    to="/"
                   >
                     Home
-                  </a>
+                  </CustomLink>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link text-light" href="#">
@@ -78,9 +79,9 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-light" href="#">
-                    Link
-                  </a>
+                  <CustomLink className="nav-link text-light" to="/blogs">
+                    Blogs
+                  </CustomLink>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link text-light" href="#">
