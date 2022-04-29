@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../../../img/logo.png";
 
 import "./Navbar.css";
@@ -12,43 +13,43 @@ const Navbar = () => {
             <div>
               <span>
                 {" "}
-                <i class="fa-solid fa-clock text-primary"></i> Mon - Tues : 6.00
-                am - 10.00 pm, Sunday Closed
+                <i className="fa-solid fa-clock text-primary"></i> Mon - Tues :
+                6.00 am - 10.00 pm, Sunday Closed
               </span>
             </div>
             <div className="d-flex align-items-center justify-content-center mt-1">
               <div className="social-icons">
                 <a href="/">
-                  <i class="fa-brands fa-facebook-f"></i>
+                  <i className="fa-brands fa-facebook-f"></i>
                 </a>
 
                 <a href="/">
-                  <i class="fa-brands fa-twitter"></i>
+                  <i className="fa-brands fa-twitter"></i>
                 </a>
                 <a href="/">
-                  <i class="fa-brands fa-instagram"></i>
+                  <i className="fa-brands fa-instagram"></i>
                 </a>
                 <a href="/">
-                  <i class="fa-brands fa-google-plus-g"></i>
+                  <i className="fa-brands fa-google-plus-g"></i>
                 </a>
               </div>
               <div className="user-login">
-                <a href="/">Login</a>
+                <Link to="/login">Login</Link>
                 <span>or</span>
-                <a href="/">Register</a>
+                <Link to="/register">Register</Link>
               </div>
             </div>
           </div>
         </aside>
       </div>
       <div className="navbar-container">
-        <nav class="navbar navbar-expand-lg  container">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+        <nav className="navbar navbar-expand-lg  container">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="/">
               <img className="img-fluid" src={logo} alt="" />
-            </a>
+            </Link>
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -56,32 +57,39 @@ const Navbar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class=" navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link text-light" aria-current="page" href="#">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className=" navbar-nav ms-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a
+                    className="nav-link text-light"
+                    aria-current="page"
+                    href="#"
+                  >
                     Home
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#">
+                <li className="nav-item">
+                  <a className="nav-link text-light" href="#">
                     Link
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#">
+                <li className="nav-item">
+                  <a className="nav-link text-light" href="#">
                     Link
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#">
+                <li className="nav-item">
+                  <a className="nav-link text-light" href="#">
                     Link
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#">
+                <li className="nav-item">
+                  <a className="nav-link text-light" href="#">
                     Link
                   </a>
                 </li>
