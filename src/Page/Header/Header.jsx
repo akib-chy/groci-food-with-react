@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <aside className="text-light py-3">
-        <div className="d-flex container justify-content-between">
+        <div className="aside-container container">
           <div>
             <span>
               {" "}
@@ -12,7 +12,7 @@ const Header = () => {
               am - 10.00 pm, Sunday Closed
             </span>
           </div>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center justify-content-center mt-1">
             <div className="social-icons">
               <a href="/">
                 <i class="fa-brands fa-facebook-f"></i>
