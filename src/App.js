@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./Page/Header/Header";
 import Login from "./Page/UserForm/Login/Login";
 import Register from "./Page/UserForm/Register/Register";
+import Footer from "./Shared/Footer/Footer";
 import Navbar from "./Shared/Navbar/Navbar";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
       <Toaster />
     </div>
   );
