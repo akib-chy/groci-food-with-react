@@ -1,15 +1,21 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
 
 const Register = () => {
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const confirmPassRef = useRef("");
-  const handleRegister = (e) => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updatingName, UpdateNameerror] = useUpdateProfile(auth);
+  const handleRegister = async (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
@@ -19,10 +25,17 @@ const Register = () => {
       toast.error("Opps Your Pass Dosn't Match");
       return;
     }
-    console.log(name, email);
-    console.log(password, confirmPassword);
+    if (error) {
+      console.log(error.message);
+      return;
+    }
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+
+    toast.success("Create Account SuccessFull");
     e.target.reset();
   };
+  console.log(user);
   return (
     <div className="login-container">
       <div className=" shadow p-4 my-4">
