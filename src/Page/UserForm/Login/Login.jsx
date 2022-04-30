@@ -1,23 +1,25 @@
 import { async } from "@firebase/util";
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import {
-  useSendPasswordResetEmail,
-  useSignInWithEmailAndPassword,
-} from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const [sendPasswordResetEmail, sending, ResatError] =
-    useSendPasswordResetEmail(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  if (user) {
+    navigate(from, { replace: true });
+  }
   const handleLogin = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -26,21 +28,30 @@ const Login = () => {
       AllError(error);
       return;
     }
+
     signInWithEmailAndPassword(email, password);
     toast.success("Login User SuccessFUll");
     e.target.reset();
   };
-  const handleForgetPassword = async () => {
+  const handleForgetPassword = (e) => {
     const email = emailRef.current.value;
     if (!email) {
-      toast.error("Type Valid Email");
+      toast.error("Please Enter Your Email");
       return;
     }
-    await sendPasswordResetEmail(email);
-    toast.success("Reset Email Sent");
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success(
+          "Password Resat Email SuccessFully sent. Check Your Email"
+        );
+      })
+      .catch((error) => {
+        AllError(error);
+      });
   };
+
   const AllError = (errors) => {
-    const error = errors?.message.splice(":")[1];
+    const error = errors?.message.split(":")[1];
     toast.error(error);
   };
   return (

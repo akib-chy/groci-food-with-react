@@ -6,12 +6,16 @@ import toast from "react-hot-toast";
 
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const handleGoogleLogin = () => {
-    signInWithGoogle();
-  };
+  if (error?.message) {
+    toast.error(error.message.split(":")[1]);
+  }
   if (user) {
     toast.success("Google Login SuccessFull");
   }
+  const handleGoogleLogin = () => {
+    signInWithGoogle();
+  };
+
   return (
     <div>
       <button
