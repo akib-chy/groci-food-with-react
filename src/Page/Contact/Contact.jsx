@@ -5,7 +5,9 @@ const Contact = () => {
     <div className="container">
       <div className="row mb-4 m-auto">
         <div className="col">
-          <h3 className="display-6 text-center mt-5 pt-3">Contact</h3>
+          <h3 className="display-6 text-center mt-5 pt-3 fw-bold text-warning">
+            Contact
+          </h3>
           <p className="text-center lead mb-0 mt-4">
             {" "}
             You may use

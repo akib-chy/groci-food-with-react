@@ -90,9 +90,12 @@ const Navbar = () => {
                   </CustomLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-light" href="#">
-                    Link
-                  </a>
+                  <CustomLink
+                    className="nav-link text-light"
+                    to="/manageInventory"
+                  >
+                    Manage Inventory
+                  </CustomLink>
                 </li>
                 <li className="nav-item">
                   <CustomLink className="nav-link text-light" to="/blogs">
