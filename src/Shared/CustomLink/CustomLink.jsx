@@ -8,7 +8,9 @@ function CustomLink({ children, to, ...props }) {
   return (
     <div
       className="mb-0 custom-link"
-      style={{ borderColor: match ? "orange" : "lightgray" }}
+      style={{
+        borderColor: match ? "orange" : "lightgray",
+      }}
     >
       <Link to={to} {...props}>
         {children}
