@@ -1,0 +1,8 @@
+.bg-foods {
+  background-image: url(https://klbtheme.com/groci/wp-content/uploads/2018/08/slider2.jpg);
+  width: 1099px;
+  height: 220px;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
