@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import BgFoods from "../BgFoods/BgFoods";
+import Contact from "../Contact/Contact";
 import OurService from "../OurService/OurService";
 import "./Header.css";
 const Header = () => {
@@ -31,6 +32,7 @@ const Header = () => {
       </Carousel>
       <OurService />
       <BgFoods />
+      <Contact />
     </div>
   );
 };
