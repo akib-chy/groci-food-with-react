@@ -3,9 +3,13 @@ import logo from "../../../img/google.80956673d8cdb1b59fe1ad06ea1b7fd0.svg";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import toast from "react-hot-toast";
+import Spiner from "../../../Shared/Spiner/Spiner";
 
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  if (loading) {
+    return <Spiner />;
+  }
   if (error?.message) {
     toast.error(error.message.split(":")[1]);
   }

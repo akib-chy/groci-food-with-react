@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -8,6 +7,7 @@ import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
 import { sendPasswordResetEmail } from "firebase/auth";
+import Spiner from "../../../Shared/Spiner/Spiner";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -17,8 +17,14 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  if (loading) {
+    return <Spiner />;
+  }
   if (user) {
-    navigate(from, { replace: true });
+    toast.success("Login User SuccessFUll");
+    setTimeout(() => {
+      navigate(from, { replace: true });
+    }, 2000);
   }
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,7 +36,7 @@ const Login = () => {
     }
 
     signInWithEmailAndPassword(email, password);
-    toast.success("Login User SuccessFUll");
+
     e.target.reset();
   };
   const handleForgetPassword = (e) => {
