@@ -1,6 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import ErrorPage from "./Page/404Page/404Page";
 import Blogs from "./Page/Blogs/Blogs";
 import Header from "./Page/Header/Header";
 import Login from "./Page/UserForm/Login/Login";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
       <Toaster />
