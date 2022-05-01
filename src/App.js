@@ -5,6 +5,7 @@ import ErrorPage from "./Page/404Page/404Page";
 import AddProduct from "./Page/AddProduct/AddProduct";
 import Blogs from "./Page/Blogs/Blogs";
 import Header from "./Page/Header/Header";
+import ManageInventory from "./Page/ManageInventory/ManageInventory";
 import Products from "./Page/Products/Products";
 import ProductUpdate from "./Page/ProductUpdate/ProductUpdate";
 import RequireAuth from "./Page/RequireAuth/RequireAuth";
@@ -31,6 +32,14 @@ function App() {
 
         <Route path="/products" element={<Products />} />
         <Route path="/addProduct" element={<AddProduct />} />
+        <Route
+          path="/manageInventory"
+          element={
+            <RequireAuth>
+              <ManageInventory />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<ErrorPage />} />
