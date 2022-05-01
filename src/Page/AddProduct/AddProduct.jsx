@@ -38,6 +38,7 @@ const AddProduct = () => {
         //   setUsers(newUser);
         toast.success("Product Added SuccessFull");
       });
+    e.target.reset();
   };
   return (
     <div>
