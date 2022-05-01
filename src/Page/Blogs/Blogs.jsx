@@ -8,33 +8,47 @@ const Blogs = () => {
         <h1 className="question-title mb-4">Our Blogs</h1>
         <div className="question-part">
           <div>
-            <h2>Authentication vs. Authorization</h2>
+            <h2 className="text-center">Javascript vs. Node Js</h2>
             <div className="row">
               <div className="col-md-6 border border-warning">
                 <h4 className="text-center text-success border-bottom py-2 border-warning">
-                  Authentication
+                  JavaScript
                 </h4>
                 <li>
-                  In authentication process, the identity of users are checked
-                  for providing the access to the system.
+                  JavaScript is a programming language. It is running in any web
+                  browser with a proper browser engine.
+                </li>
+                <li>
+                  Mainly using for any client-side activity for a web
+                  application, like possible attribute validation or refreshing
+                  the page in a specific interval or provide some dynamic
+                  changes in web pages without refreshing the page.
                 </li>
                 <li>
                   {" "}
-                  In authentication process, users or persons are verified.
+                  JavaScript running any engine like Spider monkey (FireFox),
+                  JavaScript Core (Safari), V8 (Google Chrome).
                 </li>
-                <li> It is done before the authorization process.</li>
               </div>
               <div className="col-md-6 border border-warning">
                 <h4 className="text-center text-success py-2 border-bottom border-warning">
-                  Authorization
+                  Node JS
                 </h4>
                 <li>
-                  While in authorization process, person’s or user’s authorities
-                  are checked for accessing the resources.
+                  It is an interpreter and environment for JavaScript with some
+                  specific useful libraries which JavaScript programming can use
+                  separately.
                 </li>
-                <li>While in this process, users or persons are validated.</li>
                 <li>
-                  While this process is done after the authentication process.
+                  It mainly used for accessing or performing any non-blocking
+                  operation of any operating system, like creating or executing
+                  a shell script or accessing any hardware-specific information
+                  or running any backend job.
+                </li>
+                <li>
+                  Node JS only run in a V8 engine which mainly used by google
+                  chrome. And javascript program which will be written under
+                  this Node JS will be always run in V8 Engine.
                 </li>
               </div>
             </div>
@@ -42,47 +56,70 @@ const Blogs = () => {
           <div className="right-part">
             <img
               className="question-img rounded-3"
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20190606141632/Untitled-Diagram-2019-06-06T141540.818.png"
+              src="https://cdn.educba.com/academy/wp-content/uploads/2018/07/Java-Script-vs-Node-JS-1.png"
               alt=""
             />
+          </div>
+        </div>
+        <div className="question-part">
+          <div className="right-part me-5">
+            <img
+              className="question-img rounded-3 mt-4"
+              src="https://i.ytimg.com/vi/QwevGzVu_zk/maxresdefault.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <h2 className="text-center">
+              Differences between sql and nosql databases
+            </h2>
+            <div className="row">
+              <div className="col-md-6 border border-warning">
+                <h4 className="text-center text-success border-bottom py-2 border-warning">
+                  SQL
+                </h4>
+                <li>
+                  These databases have fixed or static or predefined schema
+                </li>
+                <li>
+                  These databases are not suited for hierarchical data storage.
+                </li>
+                <li>These databases are best suited for complex queries</li>
+                <li>Vertically Scalable</li>
+              </div>
+              <div className="col-md-6 border border-warning">
+                <h4 className="text-center text-success py-2 border-bottom border-warning">
+                  NoSQL
+                </h4>
+                <li>They have dynamic schema</li>
+                <li>
+                  These databases are best suited for hierarchical data storage.
+                </li>
+                <li>These databases are not so good for complex queries</li>
+                <li>Horizontally scalable</li>
+              </div>
+            </div>
           </div>
         </div>
         <div className="question-part part-2">
           <div>
             <img
               className="question-img rounded-3"
-              src="https://www.nbnminds.com/wp-content/uploads/2019/03/is-Firebase-right-for-my-app.png"
+              src="http://jwt.io/img/facebook-card.png"
               alt=""
             />
           </div>
           <div className="right-part">
-            <h2>Why are you using firebase ? </h2>
+            <h2>What Is JWT? And How JWT Works ? </h2>
             <p>
-              We're still learning to work with the latest Firebase. And I use
-              Firebase because it's very easy to do user related work with
-              Firebase and Firebase is very popular nowadays.
+              JWT, or JSON Web Token, is an open standard used to share security
+              information between two parties — a client and a server. JWTs
+              differ from other web tokens in that they contain a set of claims.
+              Claims are used to transmit information between two parties. What
+              these claims are depends on the use case. at hand. For example, a
+              claim may assert who issued the token, how long it is valid for,
+              or what permissions the client has been granted.
             </p>
-          </div>
-        </div>
-        <div className="question-part">
-          <div>
-            <h2>
-              What other services does firebase provide other than
-              authentication ?
-            </h2>
-            <p>
-              In addition to Firebase authentication, the Firebase database
-              contains databases where data can be stored. And Firebase hosting
-              includes Firebase storagestorage and Firebase maching larning and
-              ect
-            </p>
-          </div>
-          <div className="right-part">
-            <img
-              className="question-img"
-              src="https://1.bp.blogspot.com/-YIfQT6q8ZM4/Vzyq5z1B8HI/AAAAAAAAAAc/UmWSSMLKtKgtH7CACElUp12zXkrPK5UoACLcB/s1600/image00.png"
-              alt=""
-            />
           </div>
         </div>
       </div>

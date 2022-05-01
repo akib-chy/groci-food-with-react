@@ -13,7 +13,7 @@ const Navbar = () => {
     signOut(auth);
   };
   return (
-    <div className="navbar-container">
+    <div className="navbar-container sticky-top nav-container">
       <div>
         <aside className="text-light py-3 text-center">
           <div className="aside-container container">

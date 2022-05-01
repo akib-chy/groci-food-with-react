@@ -1,3 +1,6 @@
+.nav-container {
+  backdrop-filter: blur(10px);
+}
 .navbar-container aside {
   background-color: #142440;
 }
