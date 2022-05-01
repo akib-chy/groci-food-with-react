@@ -90,11 +90,8 @@ const Navbar = () => {
                   </CustomLink>
                 </li>
                 <li className="nav-item">
-                  <CustomLink
-                    className="nav-link text-light"
-                    to="/manageInventory"
-                  >
-                    Manage Inventory
+                  <CustomLink className="nav-link text-light" to="/products">
+                    Products
                   </CustomLink>
                 </li>
                 <li className="nav-item">
@@ -102,11 +99,16 @@ const Navbar = () => {
                     Blogs
                   </CustomLink>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link text-light" href="#">
-                    Link
-                  </a>
-                </li>
+                {user && (
+                  <li className="nav-item">
+                    <CustomLink
+                      className="nav-link text-light"
+                      to="/addProduct"
+                    >
+                      Add Product
+                    </CustomLink>
+                  </li>
+                )}
                 <li className="nav-item">
                   <a className="nav-link text-light" href="#">
                     Link

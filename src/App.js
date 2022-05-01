@@ -1,10 +1,11 @@
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ManageInventory from "./ManageInventory/ManageInventory";
 import ErrorPage from "./Page/404Page/404Page";
+import AddProduct from "./Page/AddProduct/AddProduct";
 import Blogs from "./Page/Blogs/Blogs";
 import Header from "./Page/Header/Header";
+import Products from "./Page/Products/Products";
 import ProductUpdate from "./Page/ProductUpdate/ProductUpdate";
 import RequireAuth from "./Page/RequireAuth/RequireAuth";
 import Login from "./Page/UserForm/Login/Login";
@@ -28,7 +29,8 @@ function App() {
           }
         />
 
-        <Route path="/manageInventory" element={<ManageInventory />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/addProduct" element={<AddProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<ErrorPage />} />

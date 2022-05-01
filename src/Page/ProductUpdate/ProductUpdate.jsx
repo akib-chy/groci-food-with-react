@@ -6,26 +6,59 @@ import useProduct from "../../Hooks/useProduct";
 
 const ProductUpdate = () => {
   const { productId } = useParams();
-  const [singleProduct] = useProduct(productId);
+  const [singleProduct, setSingleProduct] = useProduct(productId);
   const { img, price, name, suplayerName, quantity } = singleProduct;
   const handleQuantityManage = () => {
     const confirm = window.confirm("Are You Sure");
     if (confirm) {
+      const newQuantity = quantity - 1;
+      console.log(newQuantity);
+      const updateUser = { newQuantity };
+      const url = `http://localhost:5000/product/${productId}`;
+      fetch(url, {
+        method: "PUT", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // alert("User SuccessFully Updated");
+          toast.success("Quantity Update SuccessFull");
+          // alert("user added");
+        });
       console.log("hello");
     }
   };
-  const quantityref = useRef("");
+  const quantityRef = useRef("");
   const handleQuantityUpdate = (e) => {
     e.preventDefault();
-    const quantity = quantityref.current.value;
+    const quantity = quantityRef.current.value;
     if (!quantity) {
       return toast.error("Please Type A Quantity");
     } else if (isNaN(quantity)) {
       return toast.error("This Is Not A Number");
     }
-    console.log(quantity);
-    toast.success("Quantity Update SuccessFull");
-    e.target.reset();
+    const updateUser = { quantity };
+    const url = `http://localhost:5000/product/${productId}`;
+    fetch(url, {
+      method: "PUT", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // alert("User SuccessFully Updated");
+        toast.success("Quantity Update SuccessFull");
+        e.target.reset();
+        // alert("user added");
+      });
+    // e.target.reset();
   };
   return (
     <div className="container ">
@@ -67,7 +100,7 @@ const ProductUpdate = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Update Quantity</Form.Label>
             <Form.Control
-              ref={quantityref}
+              ref={quantityRef}
               className="shadow-none border-warning"
               type="text"
               placeholder="Update Quantity"

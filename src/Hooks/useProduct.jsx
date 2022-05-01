@@ -8,7 +8,7 @@ const useProduct = (productId) => {
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
   }, [productId]);
-  return [singleProduct];
+  return [singleProduct, setSingleProduct];
 };
 
 export default useProduct;

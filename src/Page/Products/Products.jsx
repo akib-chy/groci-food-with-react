@@ -1,8 +1,8 @@
 import React from "react";
-import useProducts from "../Hooks/useProducts";
-import AllProduct from "../Page/AllProducts/AllProduct";
+import useProducts from "../../Hooks/useProducts";
+import AllProduct from "../AllProducts/AllProduct";
 
-const ManageInventory = () => {
+const Products = () => {
   const [products] = useProducts();
   return (
     <div className="container my-5">
@@ -15,4 +15,4 @@ const ManageInventory = () => {
   );
 };
 
-export default ManageInventory;
+export default Products;
