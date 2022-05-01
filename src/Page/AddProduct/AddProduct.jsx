@@ -44,7 +44,7 @@ const AddProduct = () => {
       <div className="login-container">
         <div className="shadow p-4 my-4">
           <Form onSubmit={handleAddProduct}>
-            <h3 className="text-primary fw-bold text-center">Add Product</h3>
+            <h3 className="text-warning fw-bold text-center">Add Product</h3>
             <Form.Group className="mb-3" controlId="formBasicImgURL">
               <Form.Label>Image URL</Form.Label>
               <Form.Control

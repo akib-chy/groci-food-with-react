@@ -100,14 +100,24 @@ const Navbar = () => {
                   </CustomLink>
                 </li>
                 {user && (
-                  <li className="nav-item">
-                    <CustomLink
-                      className="nav-link text-light"
-                      to="/addProduct"
-                    >
-                      Add Product
-                    </CustomLink>
-                  </li>
+                  <>
+                    <li className="nav-item">
+                      <CustomLink
+                        className="nav-link text-light"
+                        to="/addProduct"
+                      >
+                        Add Product
+                      </CustomLink>
+                    </li>
+                    <li className="nav-item">
+                      <CustomLink
+                        className="nav-link text-light"
+                        to="/manageInventory"
+                      >
+                        Manage Products
+                      </CustomLink>
+                    </li>
+                  </>
                 )}
                 <li className="nav-item">
                   <a className="nav-link text-light" href="#">

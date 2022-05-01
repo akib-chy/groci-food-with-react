@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCsm264D2Pj-p6fcZG2KZWNLFc8ZZqBSsA",
-  authDomain: "groci-food.firebaseapp.com",
-  projectId: "groci-food",
-  storageBucket: "groci-food.appspot.com",
-  messagingSenderId: "258629027322",
-  appId: "1:258629027322:web:5c075c78dc72d960e55043",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
