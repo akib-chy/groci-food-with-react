@@ -37,7 +37,7 @@ const AddProduct = () => {
       description,
       email,
     };
-    fetch("http://localhost:5000/products", {
+    fetch("https://mysterious-temple-59624.herokuapp.com/products", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

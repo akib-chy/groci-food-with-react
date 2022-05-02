@@ -14,7 +14,7 @@ const ProductUpdate = () => {
       const newQuantity = quantity - 1;
       console.log(newQuantity);
       const updateUser = { newQuantity };
-      const url = `http://localhost:5000/product/${productId}`;
+      const url = `https://mysterious-temple-59624.herokuapp.com/product/${productId}`;
       fetch(url, {
         method: "PUT", // or 'PUT'
         headers: {
@@ -42,7 +42,7 @@ const ProductUpdate = () => {
       return toast.error("This Is Not A Number");
     }
     const updateUser = { quantity };
-    const url = `http://localhost:5000/product/${productId}`;
+    const url = `https://mysterious-temple-59624.herokuapp.com/product/${productId}`;
     fetch(url, {
       method: "PUT", // or 'PUT'
       headers: {
