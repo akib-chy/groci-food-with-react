@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
+import auth from "../../firebase.init";
 
 const AddProduct = () => {
+  const [user] = useAuthState(auth);
   const imgRef = useRef("");
   const nameRef = useRef("");
   const priceRef = useRef("");
@@ -17,6 +20,7 @@ const AddProduct = () => {
     const quantity = quantityRef.current.value;
     const suplayerName = suplyerRef.current.value;
     const description = descriptionRef.current.value;
+    const email = user?.email;
     if (!img || !name || !price || !quantity || !suplayerName || !description) {
       return toast.error("Please Fil Up All Input Value");
     } else if (isNaN(price)) {
@@ -24,7 +28,15 @@ const AddProduct = () => {
     } else if (isNaN(quantity)) {
       return toast.error("Please Quantity Must Be Number");
     }
-    const product = { img, price, name, suplayerName, quantity, description };
+    const product = {
+      img,
+      price,
+      name,
+      suplayerName,
+      quantity,
+      description,
+      email,
+    };
     fetch("http://localhost:5000/products", {
       method: "POST", // or 'PUT'
       headers: {
@@ -46,6 +58,15 @@ const AddProduct = () => {
         <div className="shadow p-4 my-4">
           <Form onSubmit={handleAddProduct}>
             <h3 className="text-warning fw-bold text-center">Add Product</h3>
+            <Form.Group className="mb-3" controlId="formBasicImgURL">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                value={user?.email}
+                disabled
+                type="text"
+                className="shadow-none border-primary"
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicImgURL">
               <Form.Label>Image URL</Form.Label>
               <Form.Control
