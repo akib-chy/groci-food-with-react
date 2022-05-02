@@ -8,19 +8,21 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
 import { sendPasswordResetEmail } from "firebase/auth";
 import Spiner from "../../../Shared/Spiner/Spiner";
+import useToken from "../../../Hooks/useToken";
 
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [token] = useToken(user);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   if (loading) {
     return <Spiner />;
   }
-  if (user) {
+  if (token) {
     toast.success("Login User SuccessFUll");
     setTimeout(() => {
       navigate(from, { replace: true });

@@ -117,13 +117,13 @@ const Navbar = () => {
                         Manage Products
                       </CustomLink>
                     </li>
+                    <li className="nav-item">
+                      <CustomLink className="nav-link text-light" to="/myItems">
+                        My Product
+                      </CustomLink>
+                    </li>
                   </>
                 )}
-                <li className="nav-item">
-                  <a className="nav-link text-light" href="#">
-                    Link
-                  </a>
-                </li>
               </ul>
             </div>
           </div>

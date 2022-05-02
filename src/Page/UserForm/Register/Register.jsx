@@ -7,6 +7,7 @@ import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import Spiner from "../../../Shared/Spiner/Spiner";
+import useToken from "../../../Hooks/useToken";
 
 const Register = () => {
   const [chacked, setChacked] = useState(false);
@@ -18,11 +19,12 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
+  const [token] = useToken(user);
   if (loading) {
     return <Spiner />;
   }
   const handleRegister = async (e) => {
-    if (user) {
+    if (token) {
       toast.success("User Creat SuccessFull");
       setTimeout(() => {
         navigate("/");

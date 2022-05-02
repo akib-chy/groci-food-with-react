@@ -5,19 +5,21 @@ import auth from "../../../firebase.init";
 import toast from "react-hot-toast";
 import Spiner from "../../../Shared/Spiner/Spiner";
 import { useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../../Hooks/useToken";
 
 const SocialLogin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [token] = useToken(user);
   if (loading) {
     return <Spiner />;
   }
   if (error?.message) {
     toast.error(error.message.split(":")[1]);
   }
-  if (user) {
+  if (token) {
     toast.success("GoogleLogin User SuccessFUll");
     setTimeout(() => {
       navigate(from, { replace: true });
