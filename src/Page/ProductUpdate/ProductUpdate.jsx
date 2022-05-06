@@ -24,12 +24,11 @@ const ProductUpdate = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           // alert("User SuccessFully Updated");
           toast.success("Quantity Update SuccessFull");
+          window.location.reload(false);
           // alert("user added");
         });
-      console.log("hello");
     }
   };
   const quantityRef = useRef("");
@@ -55,6 +54,7 @@ const ProductUpdate = () => {
         // alert("User SuccessFully Updated");
         toast.success("Quantity Update SuccessFull");
         e.target.reset();
+        window.location.reload(false);
         // alert("user added");
       });
     // e.target.reset();

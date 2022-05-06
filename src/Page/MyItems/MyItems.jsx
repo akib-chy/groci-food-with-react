@@ -15,7 +15,7 @@ const MyItems = () => {
     const getOrder = async () => {
       try {
         const email = user?.email;
-        const url = `http://localhost:5000/orders?email=${email}`;
+        const url = `https://mysterious-temple-59624.herokuapp.com/orders?email=${email}`;
         const { data } = await axiosPrivet.get(url);
         setOrders(data);
       } catch (error) {
@@ -30,7 +30,7 @@ const MyItems = () => {
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Sure You Delete This Product ?");
     if (confirm) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://mysterious-temple-59624.herokuapp.com/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })
