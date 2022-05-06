@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Sure You Delete This Product ?");
     if (confirm) {
-      const url = `https://mysterious-temple-59624.herokuapp.com/product/${id}`;
+      const url = `http://localhost:5000/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })

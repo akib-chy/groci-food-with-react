@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
@@ -6,14 +6,14 @@ import useProduct from "../../Hooks/useProduct";
 
 const ProductUpdate = () => {
   const { productId } = useParams();
-  const [singleProduct, setSingleProduct] = useProduct(productId);
+  const [singleProduct] = useProduct(productId);
   const { img, price, name, suplayerName, quantity } = singleProduct;
   const handleQuantityManage = () => {
     const confirm = window.confirm("Are You Sure");
     if (confirm) {
+      // const newQuantity =
       const newQuantity = quantity - 1;
-      console.log(newQuantity);
-      const updateUser = { newQuantity };
+      const updateUser = { quantity: newQuantity };
       const url = `https://mysterious-temple-59624.herokuapp.com/product/${productId}`;
       fetch(url, {
         method: "PUT", // or 'PUT'
@@ -35,13 +35,13 @@ const ProductUpdate = () => {
   const quantityRef = useRef("");
   const handleQuantityUpdate = (e) => {
     e.preventDefault();
-    const quantity = quantityRef.current.value;
-    if (!quantity) {
+    const newQuantity = quantityRef.current.value;
+    if (!newQuantity) {
       return toast.error("Please Type A Quantity");
-    } else if (isNaN(quantity)) {
+    } else if (isNaN(newQuantity)) {
       return toast.error("This Is Not A Number");
     }
-    const updateUser = { quantity };
+    const updateUser = { quantity: newQuantity };
     const url = `https://mysterious-temple-59624.herokuapp.com/product/${productId}`;
     fetch(url, {
       method: "PUT", // or 'PUT'
@@ -52,7 +52,6 @@ const ProductUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         // alert("User SuccessFully Updated");
         toast.success("Quantity Update SuccessFull");
         e.target.reset();
