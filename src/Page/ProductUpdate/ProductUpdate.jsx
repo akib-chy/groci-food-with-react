@@ -6,7 +6,7 @@ import useProduct from "../../Hooks/useProduct";
 
 const ProductUpdate = () => {
   const { productId } = useParams();
-  const [singleProduct] = useProduct(productId);
+  const [singleProduct, setSingleProduct] = useProduct(productId);
   const { img, price, name, suplayerName, quantity } = singleProduct;
   const handleQuantityManage = () => {
     const confirm = window.confirm("Are You Sure");
@@ -24,17 +24,18 @@ const ProductUpdate = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // alert("User SuccessFully Updated");
-          toast.success("Quantity Update SuccessFull");
-          window.location.reload(false);
-          // alert("user added");
+          if (data) {
+            toast.success("Delivered Product SuccessFull");
+          }
         });
     }
   };
   const quantityRef = useRef("");
   const handleQuantityUpdate = (e) => {
     e.preventDefault();
-    const newQuantity = quantityRef.current.value;
+    const inputQuantity = quantityRef.current.value;
+    const newQuantity = parseInt(inputQuantity) + parseInt(quantity);
+    console.log(newQuantity);
     if (!newQuantity) {
       return toast.error("Please Type A Quantity");
     } else if (isNaN(newQuantity)) {
@@ -51,13 +52,12 @@ const ProductUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // alert("User SuccessFully Updated");
-        toast.success("Quantity Update SuccessFull");
-        e.target.reset();
-        window.location.reload(false);
-        // alert("user added");
+        if (data) {
+          toast.success("Product Added SuccessFull");
+          e.target.reset();
+          // window.location.reload(true);
+        }
       });
-    // e.target.reset();
   };
   return (
     <div className="container ">
@@ -79,14 +79,20 @@ const ProductUpdate = () => {
               <p className="card-text text-primary">
                 Suplyer Name: {suplayerName}
               </p>
-              <h5>Quantity: {quantity}</h5>
+              {quantity == 0 ? "" : <h5>Quantity: {quantity}</h5>}
               <div className="text-center mt-5">
-                <button
-                  onClick={handleQuantityManage}
-                  className="btn border-success shadow-none rounded-0 text-success"
-                >
-                  Delivered
-                </button>
+                {quantity == 0 ? (
+                  <h6 className="w-100 bg-danger py-2 text-light rounded">
+                    Sold
+                  </h6>
+                ) : (
+                  <button
+                    onClick={handleQuantityManage}
+                    className="btn border-success shadow-none rounded-0 text-success"
+                  >
+                    Delivered
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -97,12 +103,12 @@ const ProductUpdate = () => {
           <h4 className="text-center fw-bold text-warning">{name}</h4>
           <h5 className="text-center text-danger">Quantity: {quantity}</h5>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Update Quantity</Form.Label>
+            <Form.Label>Add Products</Form.Label>
             <Form.Control
               ref={quantityRef}
               className="shadow-none border-warning"
               type="text"
-              placeholder="Update Quantity"
+              placeholder="Add Products"
             />
           </Form.Group>
           <div className="text-center">
@@ -111,7 +117,7 @@ const ProductUpdate = () => {
               variant="warning"
               type="submit"
             >
-              Update Quantity
+              Add Products
             </Button>
           </div>
         </Form>

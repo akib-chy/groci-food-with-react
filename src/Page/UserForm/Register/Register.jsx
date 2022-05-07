@@ -23,13 +23,13 @@ const Register = () => {
   if (loading) {
     return <Spiner />;
   }
+  if (user || token) {
+    toast.success("User Creat SuccessFull");
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  }
   const handleRegister = async (e) => {
-    if (token) {
-      toast.success("User Creat SuccessFull");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    }
     e.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
