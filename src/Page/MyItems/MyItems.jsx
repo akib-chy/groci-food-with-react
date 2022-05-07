@@ -47,10 +47,18 @@ const MyItems = () => {
       <h2 className="text-center fw-bold text-warning">
         Add order: {orders.length}
       </h2>
-      {orders.map((order) => (
-        <Table key={order._id} striped bordered hover>
-          <tbody>
-            <tr>
+      <Table striped bordered hover>
+        <thead className="text-center bg-dark">
+          <tr>
+            <td className="text-light">Name</td>
+            <td className="text-light">Email</td>
+            <td className="text-light">Price</td>
+            <td className="text-light">Quantity</td>
+          </tr>
+        </thead>
+        <tbody className="text-center">
+          {orders.map((order) => (
+            <tr key={order._id}>
               <td className="text-center">{order?.name}</td>
               <td>Name: ${order?.name}</td>
               <td>Price: {order?.price}</td>
@@ -63,9 +71,9 @@ const MyItems = () => {
                 </button>
               </td>
             </tr>
-          </tbody>
-        </Table>
-      ))}
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };

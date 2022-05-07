@@ -22,11 +22,25 @@ const ManageInventory = () => {
   };
   return (
     <div className="container my-4">
-      {products.map((product) => (
-        <Table key={product._id} striped bordered hover>
-          <tbody>
-            <tr>
+      <Table striped bordered hover>
+        <tbody className="text-center bg-dark">
+          <tr>
+            <th className="text-light">Name</th>
+            <th className="text-light">Email</th>
+            <th className="text-light">Price</th>
+            <th className="text-light">Quantity</th>
+            <th className="text-light">Delete</th>
+          </tr>
+        </tbody>
+        <tbody>
+          {products.map((product) => (
+            <tr key={product._id}>
               <td className="text-center">{product?.name}</td>
+              {product?.email ? (
+                <td className="text-center">{product?.email}</td>
+              ) : (
+                <td className="text-center">Product Email NOt Set</td>
+              )}
               <td>Pice: ${product?.price}</td>
               <td>Quantity: {product?.quantity}</td>
               <td className="text-end">
@@ -38,9 +52,9 @@ const ManageInventory = () => {
                 </button>
               </td>
             </tr>
-          </tbody>
-        </Table>
-      ))}
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };
