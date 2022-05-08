@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import toast from "react-hot-toast";
 import useProducts from "../../Hooks/useProducts";
+import "./ManageInventory.css";
 
 const ManageInventory = () => {
   const [products, setProducts] = useProducts();
@@ -21,14 +22,13 @@ const ManageInventory = () => {
     }
   };
   return (
-    <div className="container my-4">
+    <div className="container-fluid my-4 manage-items">
       <Table striped bordered hover>
         <tbody className="text-center bg-dark">
           <tr>
             <th className="text-light">Name</th>
             <th className="text-light">Email</th>
             <th className="text-light">Price</th>
-            <th className="text-light">Quantity</th>
             <th className="text-light">Delete</th>
           </tr>
         </tbody>
@@ -42,7 +42,6 @@ const ManageInventory = () => {
                 <td className="text-center">Product Email NOt Set</td>
               )}
               <td>Pice: ${product?.price}</td>
-              <td>Quantity: {product?.quantity}</td>
               <td className="text-end">
                 <button
                   onClick={() => handleDeleteProduct(product?._id)}

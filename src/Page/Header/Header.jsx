@@ -1,13 +1,17 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import useProducts from "../../Hooks/useProducts";
 import BgFoods from "../BgFoods/BgFoods";
 import Contact from "../Contact/Contact";
 import Inventorys from "../Inventorys/Inventorys";
 import OurService from "../OurService/OurService";
+import Spiner from "../../Shared/Spiner/Spiner";
 import "./Header.css";
 const Header = () => {
+  const [products] = useProducts();
   return (
     <div className="header-container">
+      {products.length === 0 && <Spiner />}
       <Carousel fade>
         <Carousel.Item>
           <img
