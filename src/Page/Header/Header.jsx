@@ -9,30 +9,50 @@ import Spiner from "../../Shared/Spiner/Spiner";
 import "./Header.css";
 const Header = () => {
   const [products] = useProducts();
+  if (products.length === 0) {
+    return <Spiner />;
+  }
   return (
     <div className="header-container">
-      {products.length === 0 && <Spiner />}
       <Carousel fade>
-        <Carousel.Item>
-          <img
-            className="d-block w-100 "
-            src="https://klbtheme.com/groci/wp-content/uploads/2018/08/slider2.jpg"
-            alt="First slide"
-          />
+        <Carousel.Item className="">
+          <div className="dark-overlay">
+            <img
+              className="d-block w-100 "
+              src="https://klbtheme.com/groci/wp-content/uploads/2018/08/slider2.jpg"
+              alt="First slide"
+            />
+          </div>
+          <Carousel.Caption>
+            <h2 className="text-warning">Healthy Foods For Kids</h2>
+            <p>We have a lot of healthy foods for the kids</p>
+          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100 "
-            src="https://klbtheme.com/groci/wp-content/uploads/2018/08/2-2.jpg"
-            alt="First slide"
-          />
+          <div className="dark-overlay">
+            <img
+              className="d-block w-100 "
+              src="https://klbtheme.com/groci/wp-content/uploads/2018/08/2-2.jpg"
+              alt="First slide"
+            />
+          </div>
+          <Carousel.Caption>
+            <h2 className="text-warning">Healthy Foods For Kids</h2>
+            <p>We have a lot of healthy foods for the kids</p>
+          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://klbtheme.com/groci/wp-content/uploads/2018/08/slider1.jpg"
-            alt="Third slide"
-          />
+          <div className="dark-overlay">
+            <img
+              className="d-block w-100"
+              src="https://klbtheme.com/groci/wp-content/uploads/2018/08/slider1.jpg"
+              alt="Third slide"
+            />
+          </div>
+          <Carousel.Caption>
+            <h2 className="text-warning">Second slide label</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
       <OurService />

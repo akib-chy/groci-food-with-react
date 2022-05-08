@@ -2,10 +2,14 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import toast from "react-hot-toast";
 import useProducts from "../../Hooks/useProducts";
+import Spiner from "../../Shared/Spiner/Spiner";
 import "./ManageInventory.css";
 
 const ManageInventory = () => {
   const [products, setProducts] = useProducts();
+  if (products.length === 0) {
+    return <Spiner />;
+  }
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Sure You Delete This Product ?");
     if (confirm) {
