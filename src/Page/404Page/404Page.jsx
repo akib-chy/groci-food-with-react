@@ -5,7 +5,7 @@ const ErrorPage = () => {
     <div className="d-flex align-items-center justify-content-center">
       <img
         width="70%"
-        src="https://cdn.dribbble.com/users/215588/screenshots/909046/oops.png"
+        src="https://draft.dev/learn/assets/posts/lfropbg.png"
         alt=""
       />
     </div>
