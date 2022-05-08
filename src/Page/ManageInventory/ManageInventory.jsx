@@ -7,9 +7,7 @@ import "./ManageInventory.css";
 
 const ManageInventory = () => {
   const [products, setProducts] = useProducts();
-  if (products.length === 0) {
-    return <Spiner />;
-  }
+
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Sure You Delete This Product ?");
     if (confirm) {
@@ -25,6 +23,9 @@ const ManageInventory = () => {
         });
     }
   };
+  if (products.length === 0) {
+    return <Spiner />;
+  }
   return (
     <div className="container-fluid my-4 manage-items">
       <Table striped bordered hover>

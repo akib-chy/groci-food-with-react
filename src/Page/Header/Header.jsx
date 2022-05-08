@@ -37,8 +37,11 @@ const Header = () => {
             />
           </div>
           <Carousel.Caption>
-            <h2 className="text-warning">Healthy Foods For Kids</h2>
-            <p>We have a lot of healthy foods for the kids</p>
+            <h2 className="text-warning">Formalin Free</h2>
+            <p>
+              Our fruit does not contain any formalin. We sell formalin-laced
+              fruit
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -50,8 +53,11 @@ const Header = () => {
             />
           </div>
           <Carousel.Caption>
-            <h2 className="text-warning">Second slide label</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2 className="text-warning">Healthy Foods For All</h2>
+            <p>
+              If you are looking for healthy fruits then you can buy fruits from
+              here
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
